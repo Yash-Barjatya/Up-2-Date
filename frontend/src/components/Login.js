@@ -10,7 +10,7 @@ export const Login = (props) => {
     }
     // this is the url where backend is hosted
     // const host = "http://localhost:5000"
-    const host = "https://up-2-date.onrender.com"
+    const host = "https://up-2-date-api.onrender.com"
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {

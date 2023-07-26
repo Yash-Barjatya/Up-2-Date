@@ -3,7 +3,7 @@ import { useState } from "react";
 const NoteState = (props) => {
     // this is the url where backend is hosted
     // const host = "http://localhost:5000";
-    const host = "https://up-2-date.onrender.com"
+    const host = "https://up-2-date-api.onrender.com"
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial)
     //get all note
