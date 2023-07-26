@@ -9,7 +9,8 @@ export const Signup = (props) => {
 
     }
     // this is the url where backend is hosted
-    const host = "http://localhost:5000"
+    // const host = "http://localhost:5000"
+    const host = "https://up-2-date.onrender.com"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
