@@ -49,7 +49,7 @@ const NoteState = (props) => {
             },
         });
         const json = await response.json(); // parses JSON response into native JavaScript objects
-        console.log(json)
+        //console.log(json)
 
 
         //client side
@@ -70,7 +70,7 @@ const NoteState = (props) => {
             body: JSON.stringify({ title, description, tag }) // body data type must match "Content-Type" header
         });
         const json = await response.json(); // parses JSON response into native JavaScript objects
-        console.log(json)
+        //console.log(json)
 
         let newNotes = JSON.parse(JSON.stringify(notes))
         // client end 

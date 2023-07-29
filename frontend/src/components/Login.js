@@ -21,12 +21,12 @@ export const Login = (props) => {
             body: JSON.stringify({ email: credentials.email, password: credentials.password }) // body data type 
         });
         const json = await response.json();
-        //console.log(json)
+        console.log(json)
         if (json.success) {
             props.showAlert("Loged in successfully", "success")
             // save the auth-token and redirect to home page
             localStorage.setItem('token', json.authToken)
-            navigate("/")
+            navigate("/");
         }
         else {
             props.showAlert("Invalid credentials", "danger")
