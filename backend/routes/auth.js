@@ -51,7 +51,8 @@ router.post('/createuser', [
         res.json({ success, authToken });// will return a token which we will use for faster authentication of user
     } catch (err) {
         console.log(err.message);
-        res.status(500).send("Internal server error")
+        // res.status(500).send("Internal server error")
+        return res.status(500).json({ success, error: "Internal server error" });
         //     res.json({
         //         error: " please enter a unique value", message: err.message
         //     });
@@ -95,7 +96,9 @@ router.post('/login', [
         res.json({ success, authToken });
     } catch (error) {
         console.log(error.message);
-        res.status(500).send("Internal server error ")
+        // res.status(500).send("Internal server error ");
+        return res.status(500).json({ success, error: "Internal server error" })
+
     }
 })
 // ROUTE : 3 ----getting users details : post (endpoint == api/auth/getuser)//  login required
