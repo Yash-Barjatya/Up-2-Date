@@ -7,7 +7,7 @@ const app = express();
 const cors = require('cors')
 
 //middleware
-app.use(cors())// to fix an error of using 3000 in 5000 port
+app.use(cors())// to fix the error of using 3000 in 5000 port
 app.use(express.json())
 
 // Routes

@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 //JWT auth
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = "yashislearningMERNstack"
+const JWT_SECRET = process.env.JWT_SECRET
 // fetchUser middleware
 
 const fetchUser = require('../middleware/fetchUser')
@@ -52,7 +52,7 @@ router.post('/createuser', [
     } catch (err) {
         console.log(err.message);
         //res.status(500).send(err.message)
-        return res.status(500).json({ success, error: "Internal server error" });
+        return res.status(500).json({ success, error: err.message });
         //     res.json({
         //         error: " please enter a unique value", message: err.message
         //     });
@@ -97,7 +97,9 @@ router.post('/login', [
     } catch (error) {
         console.log(error.message);
         // res.status(500).send("Internal server error ");
-        return res.status(500).json({ success, error: "Internal server error!!" })
+        // return res.status(500).json({ success, error: "Internal server error!!" })
+        return res.status(500).json({ success, error: error.messaage })
+
 
     }
 })
