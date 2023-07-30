@@ -11,6 +11,9 @@ app.use(cors())// to fix an error of using 3000 in 5000 port
 app.use(express.json())
 
 // Routes
+app.get("/", (req, res) => {
+    res.send("Welcome to Up-2-Date server");
+});
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
