@@ -18,5 +18,5 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
 app.listen(port, () => {
-    console.log(`Up-2-Date backend listening to port ${port}`)
+    console.log(`Up-2-Date server is listening to port ${port}`)
 })
