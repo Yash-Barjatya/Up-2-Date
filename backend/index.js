@@ -1,29 +1,5 @@
 require('dotenv').config()
-// const connectToMongo = require('./db');
-// connectToMongo();
-// const startApp = async () => {
-//     try {
-//         await connectToMongo();
-//         // Do other tasks related to starting your application here.
-//     } catch (err) {
-//         console.error("Error starting the application:", err.message);
-//         // Perform any necessary error handling.
-//     }
-// };
-
-// startApp();
-const mongoose = require('mongoose');
-const mongoURI = process.env.DATABASE_URI;
-console.log(mongoURI)
-const connectToMongo = async () => {
-    try {
-        await mongoose.connect(mongoURI, { useNewUrlParser: true });
-        console.log("Connected to MongoDB successfully.");
-    } catch (err) {
-        console.error("Error connecting to MongoDB:", err.message);
-    }
-};
-connectToMongo();
+const connectToMongo = require('./db');
 const express = require('express')
 const port = process.env.PORT || 5000
 const app = express();
@@ -40,6 +16,11 @@ app.get("/", (req, res) => {
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
-app.listen(port, () => {
+app.listen(port, async () => {
+    try {
+        await connectToMongo();
+    } catch (err) {
+        console.error("Error connecting to MongoDB:", err.message);
+    }
     console.log(`Up-2-Date server is listening to port ${port}`)
 })

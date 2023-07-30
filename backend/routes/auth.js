@@ -12,8 +12,16 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 const fetchUser = require('../middleware/fetchUser')
 
-// ROUTE : 1 ----creating a user using : post (endpoint == api/auth/createuser)// no login required
-
+// ROUTE : 1 ----for testing purpose : get (endpoint == api/auth/)// no login required
+router.get('/', async (req, res) => {
+    try {
+        res.send("Try to login or signup first");
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send("Internal server error")
+    }
+})
+// ROUTE : 2 ----creating a user using : post (endpoint == api/auth/createuser)// no login required
 router.post('/createuser', [
     body('email', 'Enter a valid email').isEmail(),// wae can even give custom messages
     body('password', 'Enter a valid password(min 5 characters)').isLength({ min: 5 })
@@ -59,7 +67,7 @@ router.post('/createuser', [
     }
 })
 
-// ROUTE : 2 ----authentication of  a user using : post (endpoint == api/auth/login)// no login required
+// ROUTE : 3 ----authentication of  a user using : post (endpoint == api/auth/login)// no login required
 router.post('/login', [
     body('email', "Enter a valid email").isEmail(),
     body('password', "Password cannot be blank").exists(),
@@ -103,7 +111,7 @@ router.post('/login', [
 
     }
 })
-// ROUTE : 3 ----getting users details : post (endpoint == api/auth/getuser)//  login required
+// ROUTE : 4----getting users details : post (endpoint == api/auth/getuser)//  login required
 router.post('/getuser', fetchUser, async (req, res) => {
 
     try {
