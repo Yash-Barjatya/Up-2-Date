@@ -3,10 +3,7 @@ import { useState } from "react";
 require('dotenv').config();
 const NoteState = (props) => {
     // this is the url where backend is hosted
-    // const host = "http://localhost:5000";
     const host = process.env.REACT_APP_HOST || "http://localhost:5000";
-    console.log(process.env.REACT_APP_HOST);
-    console.log(host);
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial)
     //get all note
