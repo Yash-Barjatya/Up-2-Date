@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+require('dotenv').config();
 
 export const Signup = (props) => {
     let navigate = useNavigate();
@@ -10,7 +11,9 @@ export const Signup = (props) => {
     }
     // this is the url where backend is hosted
     // const host = "http://localhost:5000"
-    const host = "https://up-2-date-api.onrender.com"
+    // const host = "https://up-2-date-api.onrender.com"
+    const host = process.env.REACT_APP_HOST || 'http://localhost:5000';
+    console.log('backend server ', host);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
