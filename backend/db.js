@@ -13,6 +13,6 @@ const mongoURI = process.env.DATABASE_URI;
 // };
 const connectToMongo = () => {
     // mongoose.connect(mongoURI);
-    mongoose.connect(monogoURI, { useNewUrlParser: true, socketTimeoutMS: 30000 });
+    mongoose.connect(mongoURI, { useNewUrlParser: true, socketTimeoutMS: 30000 });
 };
 module.exports = connectToMongo;
