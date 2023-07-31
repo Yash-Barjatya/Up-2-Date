@@ -20,7 +20,7 @@ app.listen(port, async () => {
     try {
         await connectToMongo();
     } catch (err) {
-        console.error("Error connecting to MongoDB:", err.message);
+        console.error("Error connecting to MongoDB: ", err.message);
     }
     console.log(`Up-2-Date server is listening to port ${port}`)
 })

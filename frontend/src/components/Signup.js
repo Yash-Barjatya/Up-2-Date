@@ -22,7 +22,7 @@ export const Signup = (props) => {
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password }) // body data type 
         });
         const json = await response.json();
-        console.log(json)
+        //console.log(json)
         if (json.success) {
             props.showAlert("Account created successfully", "success")
             // save the auth-token and redirect to home page

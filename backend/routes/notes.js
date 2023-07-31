@@ -11,8 +11,8 @@ router.get('/fetchallnotes', fetchUser, async (req, res) => {
         const notes = await Note.find({ user: req.user.id })
         res.json(notes)
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send("Internal server error")
+        //console.log(error.message);
+        res.status(500).send("Internal server error: " + error.message)
     }
 })
 // ROUTE : 2 ----add a new note : post (endpoint == api/notes/addnote)// login required
@@ -39,8 +39,8 @@ router.post('/addnote', fetchUser, [
         const savedNote = await note.save()
         res.json(savedNote)
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send("Internal server error")
+        //console.log(error.message);
+        res.status(500).send("Internal server error: " + error.message)
     }
 })
 // ROUTE : 3 ----Update a note : put (endpoint == api/notes/updatenote/:id)// login required
@@ -76,8 +76,8 @@ router.put('/updatenote/:id', fetchUser, async (req, res) => {
         note = await Note.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true })// new==true implies allow and create new note with updates
         res.json({ note })
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send("Internal server error")
+        //console.log(error.message);
+        res.status(500).send("Internal server error: " + error.message)
     }
 })
 
@@ -102,8 +102,8 @@ router.delete('/deletenote/:id', fetchUser, async (req, res) => {
         note = await Note.findByIdAndDelete(req.params.id)
         res.json({ "Success": "Note has been deleted", note: note })
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send("Internal server error")
+        //console.log(error.message);
+        res.status(500).send("Internal server error: " + error.message)
     }
 })
 module.exports = router;

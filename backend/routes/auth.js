@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
     try {
         res.send("Try to login or signup first");
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send("Internal server error")
+        //console.log(error.message);
+        res.status(500).send("Internal server error: " + error.messaage)
     }
 })
 // ROUTE : 2 ----creating a user using : post (endpoint == api/auth/createuser)// no login required
@@ -58,9 +58,9 @@ router.post('/createuser', [
         success = true;
         res.json({ success, authToken });// will return a token which we will use for faster authentication of user
     } catch (err) {
-        console.log(err.message);
+        //console.log(err.message);
         //res.status(500).send(err.message)
-        return res.status(500).json({ success, error: err.message });
+        return res.status(500).json({ success, error: "Internal Server Error: " + err.message });
         //     res.json({
         //         error: " please enter a unique value", message: err.message
         //     });
@@ -103,10 +103,10 @@ router.post('/login', [
         success = true;
         res.json({ success, authToken });
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         // res.status(500).send("Internal server error ");
         // return res.status(500).json({ success, error: "Internal server error!!" })
-        return res.status(500).json({ success, error: error.messaage })
+        return res.status(500).json({ success, error: "Internal server error: " + error.messaage })
 
 
     }
@@ -119,9 +119,9 @@ router.post('/getuser', fetchUser, async (req, res) => {
         const user = await User.findById(userId).select("-password")// will select all document argument except password
         res.send(user)
     } catch (error) {
-        console.error(error.message)
+        //console.error(error.message)
         // res.status(500).send("Internal server error ");
-        return res.status(500).json({ success, error: "Internal server error!!!" });
+        return res.status(500).json({ success, error: "Internal server error: " + error.messaage });
 
     }
 })
