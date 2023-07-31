@@ -19,8 +19,6 @@ app.use('/api/notes', require('./routes/notes'))
 app.listen(port, async () => {
     try {
         await connectToMongo();
-        console.log("Connected to MongoDB successfully.");
-
     } catch (err) {
         console.error("Error connecting to MongoDB:", err.message);
     }
