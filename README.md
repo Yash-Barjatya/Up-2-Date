@@ -63,4 +63,6 @@ Make sure to provide the following configuration in an environment file:
 - [ ] Create a profile page and allow users to change details of their profile, including deletion of the profile.
 - [ ] Search Functionality: Implement a search feature that allows users to search for specific keywords or tags within their notes, making it easier to find relevant information quickly.
 - [ ] Allow users to pin important notes.
+- [ ] Allow users to share their notes.
+- [ ] Allow collaboration 
 - [ ] Dark Mode: Provide a dark mode option for users who prefer a more visually comfortable experience, especially during low-light conditions.
